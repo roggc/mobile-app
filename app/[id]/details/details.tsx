@@ -4,6 +4,7 @@ import { ProductDetails } from "@/app/utils/api/types";
 import Configuration from "./configuration/configuration";
 import { createContext, useContext, useState } from "react";
 import Image from "./image";
+import Specifications from "./specifications/specifications";
 
 type DetailsContextType = {
   selectedColorIndex: number;
@@ -33,6 +34,7 @@ export default function Details({ productDetails }: Props) {
       <div className="px-4 gap-10 flex flex-col">
         <Image colorOptions={productDetails.colorOptions} />
         <Configuration productDetails={productDetails} />
+        <Specifications productDetails={productDetails} />
       </div>
     </DetailsContext.Provider>
   );
