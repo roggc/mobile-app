@@ -9,13 +9,14 @@ export default function Button({
   children,
   isFilled = false,
   onClick,
+  className,
   ...props
 }: PropsWithChildren<Props>) {
   return (
     <div
       className={`w-full h-12 px-[7px] py-[5px] ${
         isFilled ? "bg-black" : "bg-[#F3F2F2]"
-      } flex items-center justify-center`}
+      } flex items-center justify-center ${className ?? ""}`}
       onClick={onClick}
       {...props}
     >
