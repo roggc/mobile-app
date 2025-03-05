@@ -1,6 +1,6 @@
 import getProducts from "@/app/utils/api/get-products";
 import type { Product } from "@/app/utils/api/types";
-import ProductCard from "@/app/product-card";
+import ProductCard from "./product-card";
 import Link from "next/link";
 
 const getUniqueProducts = (products: Product[]) => {
@@ -21,9 +21,9 @@ export default async function ProductList() {
 
   return (
     <div className="px-4 pb-4">
-      {uniqueProducts.map((product: Product) => (
+      {uniqueProducts.map((product: Product, index: number) => (
         <Link key={product.id} href={`/${product.id}`}>
-          <ProductCard product={product} />
+          <ProductCard product={product} isFirst={index === 0} />
         </Link>
       ))}
     </div>

@@ -1,9 +1,18 @@
 import { Product } from "@/app/utils/api/types";
 import Image from "next/image";
 
-export default function ProductCard({ product }: { product: Product }) {
+type Props = {
+  product: Product;
+  isFirst?: boolean;
+};
+
+export default function ProductCard({ product, isFirst = false }: Props) {
   return (
-    <div className="flex flex-col gap-6 p-4 border-[0.5px] items-center ">
+    <div
+      className={`flex flex-col gap-6 p-4 ${
+        isFirst ? "border-[0.5px]" : "border-x-[0.5px] border-b-[0.5px]"
+      } items-center`}
+    >
       <Image
         src={product.imageUrl}
         alt={product.name}
