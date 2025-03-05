@@ -33,8 +33,8 @@ export type ProductDetails = {
   brand: string;
   name: string;
   description: string;
-  basePrice: 0;
-  rating: 0;
+  basePrice: number;
+  rating: number;
   specs: Specs;
   colorOptions: ColorOptions;
   storageOptions: StorageOptions;

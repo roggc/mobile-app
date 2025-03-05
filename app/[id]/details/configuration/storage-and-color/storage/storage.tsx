@@ -19,12 +19,22 @@ const findIndex = (storageOptions: StorageOptions, basePrice: number) => {
 };
 
 export default function Storage({ storageOptions, basePrice }: Props) {
-  const { setPrice, selectedStorageIndex } = useConfigurationContext();
+  const { setPrice, selectedStorageIndex, setSelectedStorageIndex } =
+    useConfigurationContext();
   const foundIndex = findIndex(storageOptions, basePrice);
 
   useEffect(() => {
-    setPrice(storageOptions[selectedStorageIndex ?? foundIndex].price);
-  }, [foundIndex, selectedStorageIndex]);
+    if (selectedStorageIndex === undefined) {
+      setPrice(storageOptions[foundIndex].price);
+      setSelectedStorageIndex(foundIndex);
+    } else {
+      setPrice(storageOptions[selectedStorageIndex].price);
+    }
+  }, [selectedStorageIndex]);
+
+  // useEffect(() => {
+  //   setPrice(storageOptions[selectedStorageIndex ?? foundIndex].price);
+  // }, [foundIndex, selectedStorageIndex]);
 
   return (
     <div className="flex flex-col gap-5">

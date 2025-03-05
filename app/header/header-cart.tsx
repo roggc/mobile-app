@@ -1,6 +1,11 @@
+"use client";
+
 import Image from "next/image";
+import { useCart } from "@/app/context/cart";
 
 export default function HeaderCart() {
+  const { items } = useCart();
+
   return (
     <div className="flex gap-1 items-center">
       <Image
@@ -9,7 +14,7 @@ export default function HeaderCart() {
         width={24}
         height={24}
       />
-      <div className="font-light">0</div>
+      <div className="font-light">{items.length}</div>
     </div>
   );
 }

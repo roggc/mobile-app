@@ -41,7 +41,12 @@ export default function Configuration({ productDetails }: Props) {
       <div className="flex flex-col gap-10 items-start">
         <NameAndPrice name={productDetails.name} />
         <StorageAndColor productDetails={productDetails} />
-        <ButtonToAddToCart />
+        <ButtonToAddToCart
+          id={productDetails.id}
+          name={productDetails.name}
+          colorOptions={productDetails.colorOptions}
+          storageOptions={productDetails.storageOptions}
+        />
       </div>
     </ConfigurationContext.Provider>
   );
