@@ -5,6 +5,7 @@ import Configuration from "./configuration/configuration";
 import { createContext, useContext, useState } from "react";
 import Image from "./image";
 import Specifications from "./specifications/specifications";
+import SimilarProducts from "./similiar-products";
 
 type DetailsContextType = {
   selectedColorIndex: number;
@@ -35,6 +36,7 @@ export default function Details({ productDetails }: Props) {
         <Image colorOptions={productDetails.colorOptions} />
         <Configuration productDetails={productDetails} />
         <Specifications productDetails={productDetails} />
+        <SimilarProducts products={productDetails.similarProducts} />
       </div>
     </DetailsContext.Provider>
   );

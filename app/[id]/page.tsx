@@ -5,15 +5,18 @@ import Details from "./details/details";
 
 export default async function Page({
   params,
+  searchParams,
 }: {
   params: Promise<{ id: string }>;
+  searchParams: Promise<{ isHorizontal: string }>;
 }) {
   const { id } = await params;
+  const { isHorizontal } = await searchParams;
   const productDetails: ProductDetails = await getProductById(id);
 
   return (
     <>
-      <Back />
+      <Back isHorizontal={isHorizontal ? true : false} />
       <Details productDetails={productDetails} />
     </>
   );
