@@ -1,5 +1,5 @@
 import SearchContainer from "@/app/search/container";
-import ProductList from "@/app/ui/product-list/product-list";
+import ProductList from "@/app/product-list/product-list";
 import getProducts from "@/app/utils/api/get-products";
 
 export default async function Home() {

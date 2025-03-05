@@ -1,5 +1,5 @@
 import type { Product } from "@/app/utils/api/types";
-import ProductCard from "@/app/ui/product-list/product-card";
+import ProductCard from "./product-card";
 import Link from "next/link";
 
 const getUniqueProducts = (products: Product[]) => {

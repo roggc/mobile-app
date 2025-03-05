@@ -1,5 +1,5 @@
 import type { Product } from "@/app/utils/api/types";
-import ProductList from "@/app/ui/product-list/product-list";
+import ProductList from "@/app/product-list/product-list";
 
 type Props = {
   products: Product[];
