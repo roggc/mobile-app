@@ -1,4 +1,5 @@
-import PropertyBox from "./property-box";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { ProductDetails } from "@/app/utils/api/types";
 import List from "./list";
 

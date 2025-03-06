@@ -4,9 +4,13 @@ import { useCart } from "@/app/context/cart";
 import { usePathname } from "next/navigation";
 import "@testing-library/jest-dom";
 
-jest.mock("next/image", () => ({ src, alt }: { src: string; alt: string }) => (
-  <img src={src} alt={alt} />
-));
+jest.mock("next/image", () => {
+  const MockImage = ({ src, alt }: { src: string; alt: string }) => (
+    <img src={src} alt={alt} />
+  );
+  MockImage.displayName = "NextImageMock";
+  return MockImage;
+});
 
 jest.mock("next/navigation", () => ({
   usePathname: jest.fn(),
