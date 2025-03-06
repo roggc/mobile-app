@@ -13,13 +13,11 @@ export default function Input() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (text !== search) {
-        router.push(`/?search=${encodeURIComponent(text)}`);
-      }
+      router.push(`/?search=${encodeURIComponent(text)}`);
     }, 300);
 
     return () => clearTimeout(timer);
-  }, [text, search, router]);
+  }, [text, router]);
 
   return (
     <input
