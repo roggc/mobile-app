@@ -39,8 +39,10 @@ export default function Details({ productDetails }: Props) {
       value={{ selectedColorIndex, setSelectedColorIndex }}
     >
       <div className="px-4 gap-10 flex flex-col">
-        <Image colorOptions={productDetails.colorOptions} />
-        <Configuration productDetails={productDetails} />
+        <div className="flex flex-col gap-10 md:flex-row md:gap-1 md:justify-between md:items-center">
+          <Image colorOptions={productDetails.colorOptions} />
+          <Configuration productDetails={productDetails} />
+        </div>
         <Specifications productDetails={productDetails} />
         <SimilarProducts products={productDetails.similarProducts} />
       </div>

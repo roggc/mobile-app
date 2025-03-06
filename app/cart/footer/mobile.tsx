@@ -1,12 +1,13 @@
-import { useCart } from "@/app/context/cart";
 import Button from "@/app/ui/button";
 import { useRouter } from "next/navigation";
 
-export default function Footer() {
+type Props = {
+  isEmpty?: boolean;
+  total: number;
+};
+
+export default function MobileFooter({ isEmpty = false, total }: Props) {
   const router = useRouter();
-  const { items } = useCart();
-  const isEmpty = items.length === 0;
-  const total = items.reduce((acc, item) => acc + item.price, 0);
 
   return (
     <div className={`flex flex-col gap-6 py-6 px-4 ${isEmpty ? "" : "pt-4"}`}>

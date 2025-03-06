@@ -25,8 +25,8 @@ export default function ProductList({ products, isHorizontal = false }: Props) {
   return (
     <div
       className={`${isHorizontal ? "" : "px-4"} pb-4 flex ${
-        isHorizontal ? "flex-row" : "flex-col"
-      } md:grid md:grid-cols-2`}
+        isHorizontal ? "flex-row" : "flex-col md:grid md:grid-cols-2"
+      }`}
     >
       {uniqueProducts.map((product: Product, index: number) => (
         <Link

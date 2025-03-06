@@ -1,7 +1,7 @@
 "use client";
 
 import { useCart } from "@/app/context/cart";
-import Footer from "./footer";
+import Footer from "./footer/footer";
 import CartItemCard from "./cart-item-card";
 
 export default function Page() {
