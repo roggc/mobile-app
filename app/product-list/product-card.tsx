@@ -43,7 +43,7 @@ export default function ProductCard({
           <span className="text-xs font-light">{product.basePrice} EUR</span>
         </div>
       </div>
-      <div className="absolute top-0 left-0 w-full bg-white h-full group-hover:h-0 group-hover:bg-black transition-all duration-500 ease-out z-0"></div>
+      <div className="absolute top-0 left-0 w-full bg-white h-full group-hover:h-0 transition-all duration-500 ease-out z-0"></div>
     </div>
   );
 }
