@@ -16,7 +16,7 @@ export default function Button({
     <div
       className={`w-full h-12 px-[7px] py-[5px] ${
         isFilled ? "bg-black" : "bg-[#F3F2F2]"
-      } flex items-center justify-center ${className ?? ""}`}
+      } flex items-center justify-center cursor-pointer ${className ?? ""}`}
       onClick={onClick}
       {...props}
     >
