@@ -38,8 +38,8 @@ export default function Details({ productDetails }: Props) {
     <DetailsContext.Provider
       value={{ selectedColorIndex, setSelectedColorIndex }}
     >
-      <div className="px-4 gap-10 flex flex-col">
-        <div className="flex flex-col gap-10 md:flex-row md:gap-1 md:justify-between md:items-center">
+      <div className="px-4 xl:px-40 gap-10 flex flex-col">
+        <div className="flex flex-col gap-10 md:flex-row md:gap-1 md:items-center md:justify-evenly">
           <Image colorOptions={productDetails.colorOptions} />
           <Configuration productDetails={productDetails} />
         </div>
