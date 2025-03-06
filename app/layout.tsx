@@ -37,7 +37,7 @@ export default function RootLayout({
         className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-white text-black dark:bg-white dark:text-black`}
       >
         <CartProviderWrapper>
-          <div className="flex flex-col h-screen">
+          <div className="flex flex-col h-dvh">
             <Header />
             {children}
           </div>
