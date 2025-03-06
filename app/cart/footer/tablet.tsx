@@ -10,7 +10,7 @@ export default function TabletFooter({ isEmpty = false, total }: Props) {
   const router = useRouter();
 
   return (
-    <div className={`flex justify-between p-10 pt-6 ${isEmpty ? "" : "pt-4"}`}>
+    <div className={`flex justify-between p-10 pt-6`}>
       <Button
         className="bg-white border border-black max-w-[200px]"
         onClick={() => router.push("/")}
