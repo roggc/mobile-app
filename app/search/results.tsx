@@ -1,3 +1,7 @@
-export default function Results() {
-  return <div className="font-light">20 RESULTS</div>;
+type Props = {
+  numberOfResults: number;
+};
+
+export default function Results({ numberOfResults }: Props) {
+  return <div className="font-light">{numberOfResults} RESULTS</div>;
 }

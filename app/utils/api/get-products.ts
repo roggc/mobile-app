@@ -1,7 +1,12 @@
 import { API_URL } from "./url";
 
-export default async function getProducts() {
-  const resp = await fetch(`${API_URL}/products?limit=${20}`, {
+export default async function getProducts(search?: string) {
+  const url = new URL(`${API_URL}/products`);
+  url.searchParams.append("limit", "20");
+  if (search) {
+    url.searchParams.append("search", search);
+  }
+  const resp = await fetch(url.toString(), {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
