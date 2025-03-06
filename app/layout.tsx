@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/app/header/header";
-import { CartProvider } from "@/app/context/cart";
+import CartProviderWrapper from "./cart-provider-wrapper";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -36,12 +36,12 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-white text-black dark:bg-white dark:text-black`}
       >
-        <CartProvider>
+        <CartProviderWrapper>
           <div className="flex flex-col h-screen">
             <Header />
             {children}
           </div>
-        </CartProvider>
+        </CartProviderWrapper>
       </body>
     </html>
   );

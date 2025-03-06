@@ -8,6 +8,7 @@ import React, {
   useCallback,
   SetStateAction,
   Dispatch,
+  useEffect,
 } from "react";
 
 export type CartItem = {
@@ -38,22 +39,47 @@ export function useCart() {
 }
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>([]);
-  const [detailItemId, setDetailItemId] = useState("");
+  const isClient = typeof window !== "undefined";
 
-  const addItem = useCallback(
-    (item: CartItem) =>
-      setItems((prev) => [
+  const [items, setItems] = useState<CartItem[]>(() => {
+    if (isClient) {
+      const storedItems = localStorage.getItem("cartItems");
+      return storedItems ? JSON.parse(storedItems) : [];
+    }
+    return [];
+  });
+  const [detailItemId, setDetailItemId] = useState(() => {
+    if (isClient) {
+      const storedDetailItemId = localStorage.getItem("detailItemId");
+      return storedDetailItemId || "";
+    }
+    return "";
+  });
+
+  const addItem = useCallback((item: CartItem) => {
+    setItems((prev) => {
+      const updatedItems = [
         ...prev.filter((item_) => item_.id !== item.id),
         item,
-      ]),
-    []
-  );
+      ];
+      localStorage.setItem("cartItems", JSON.stringify(updatedItems));
+      return updatedItems;
+    });
+  }, []);
 
-  const removeItem = useCallback(
-    (id: string) => setItems((prev) => prev.filter((item) => item.id !== id)),
-    []
-  );
+  const removeItem = useCallback((id: string) => {
+    setItems((prev) => {
+      const updatedItems = prev.filter((item) => item.id !== id);
+      localStorage.setItem("cartItems", JSON.stringify(updatedItems));
+      return updatedItems;
+    });
+  }, []);
+
+  useEffect(() => {
+    if (detailItemId) {
+      localStorage.setItem("detailItemId", detailItemId);
+    }
+  }, [detailItemId]);
 
   return (
     <CartContext.Provider
