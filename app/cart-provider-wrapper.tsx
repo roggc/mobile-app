@@ -8,10 +8,6 @@ const NoSSRCartProvider = dynamic(
   { ssr: false }
 );
 
-type Props = {};
-
-export default function CartProviderWrapper({
-  children,
-}: PropsWithChildren<Props>) {
+export default function CartProviderWrapper({ children }: PropsWithChildren) {
   return <NoSSRCartProvider>{children}</NoSSRCartProvider>;
 }
