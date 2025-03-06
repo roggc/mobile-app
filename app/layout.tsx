@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/app/header/header";
@@ -19,6 +19,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Mobile App",
   description: "Mobile App",
+};
+
+export const viewport: Viewport = {
+  initialScale: 1.0,
+  width: "device-width",
 };
 
 export default function RootLayout({
