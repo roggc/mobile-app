@@ -20,7 +20,7 @@ export default function ProductCard({
           : isHorizontal
           ? "border-y-[0.5px] border-r-[0.5px]"
           : "border-x-[0.5px] border-b-[0.5px]"
-      } items-center ${isHorizontal ? "w-[344px]" : "w-full"}`}
+      } items-center ${isHorizontal ? "w-[344px]" : "w-full"} md:border`}
     >
       <div className="w-[312px] h-[257px] relative">
         <Image
