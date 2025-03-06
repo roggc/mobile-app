@@ -20,9 +20,11 @@ export default function ProductCard({
           : isHorizontal
           ? "border-y-[0.5px] border-r-[0.5px]"
           : "border-x-[0.5px] border-b-[0.5px]"
-      } items-center ${isHorizontal ? "w-[344px]" : "w-full"} md:border`}
+      } items-center ${
+        isHorizontal ? "w-[344px]" : "w-full"
+      } md:border group relative bg-black`}
     >
-      <div className="w-[312px] h-[257px] relative">
+      <div className="w-[312px] h-[257px] relative z-1">
         <Image
           src={product.imageUrl}
           alt={product.name}
@@ -30,8 +32,8 @@ export default function ProductCard({
           className="object-contain"
         />
       </div>
-      <div className="flex flex-col gap-1 w-full">
-        <span className="text-[10px] text-[#79736D] font-light">
+      <div className="flex flex-col gap-1 w-full z-1 group-hover:text-white transition-all duration-500 easy-out">
+        <span className="text-[10px] text-[#79736D] group-hover:text-white transition-all duration-500 easy-out font-light">
           {product.brand.toUpperCase()}
         </span>
         <div className="flex justify-between">
@@ -41,6 +43,7 @@ export default function ProductCard({
           <span className="text-xs font-light">{product.basePrice} EUR</span>
         </div>
       </div>
+      <div className="absolute top-0 left-0 w-full bg-white h-full group-hover:h-0 group-hover:bg-black transition-all duration-500 ease-out z-0"></div>
     </div>
   );
 }
