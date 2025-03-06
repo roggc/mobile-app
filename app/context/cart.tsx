@@ -8,7 +8,7 @@ import React, {
   useCallback,
 } from "react";
 
-type CartItem = {
+export type CartItem = {
   id: string;
   name: string;
   color: string;
@@ -17,11 +17,11 @@ type CartItem = {
   price: number;
 };
 
-interface CartContextType {
+type CartContextType = {
   items: CartItem[];
   addItem: (item: CartItem) => void;
   removeItem: (id: string) => void;
-}
+};
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
