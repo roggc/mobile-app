@@ -29,6 +29,7 @@ export default function ProductList({ products, isHorizontal = false }: Props) {
           ? "flex-row"
           : "flex-col md:grid md:grid-cols-2 xl:grid-cols-5"
       }`}
+      data-testid="product-list"
     >
       {uniqueProducts.map((product: Product, index: number) => (
         <Link
