@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mobile store app
 
-## Getting Started
+## See it in action
 
-First, run the development server:
+This project is deployed in [https://superultramobilestore.netlify.app](https://superultramobilestore.netlify.app)
+
+## Install dependencies and run it
+
+To install dependencies you should do:
+
+```bash
+npm install
+```
+
+and to run the web app locally you should do:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+but you will need to create an .env file and add the X_API_KEY environment variable with the correct value in order the application can fetch data from the API.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Finally open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Unit tests
 
-## Learn More
+Some unit tests have been made. To run them you must type:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm test
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Only a few have been made. The reason is to get the idea of it and finish the project fast.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Mobile first programming
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is responsive. It uses Tailwind.css. Mobile first procedure have been followed.
