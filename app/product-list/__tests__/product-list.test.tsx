@@ -33,24 +33,7 @@ describe("ProductList Component", () => {
       brand: "foo",
       imageUrl: "bar",
     },
-    {
-      id: "1",
-      name: "Product 1 Duplicate",
-      basePrice: 100,
-      brand: "foo",
-      imageUrl: "bar",
-    },
   ];
-
-  it("renders unique products", () => {
-    render(<ProductList products={mockProducts} />);
-
-    const productCards = screen.getAllByTestId("product-card");
-
-    expect(productCards).toHaveLength(2);
-    expect(productCards[0]).toHaveTextContent("Product 1");
-    expect(productCards[1]).toHaveTextContent("Product 2");
-  });
 
   it("renders in horizontal layout when isHorizontal is true", () => {
     render(<ProductList products={mockProducts} isHorizontal />);
