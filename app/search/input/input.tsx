@@ -20,12 +20,19 @@ export default function Input() {
   }, [text, router]);
 
   return (
-    <input
-      type="text"
-      className="w-full placeholder-[#aaaaaa] font-light outline-none"
-      placeholder="Search for a smartphone..."
-      value={text}
-      onChange={(e) => setText(e.target.value)}
-    />
+    <div className="flex justify-between items-center gap-1 w-full">
+      <input
+        type="text"
+        className="placeholder-[#aaaaaa] font-light outline-none flex-1"
+        placeholder="Search for a smartphone..."
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      {text && (
+        <div onClick={() => setText("")} className="cursor-pointer">
+          x
+        </div>
+      )}
+    </div>
   );
 }
