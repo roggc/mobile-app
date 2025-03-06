@@ -22,7 +22,7 @@ export default function Input() {
   return (
     <input
       type="text"
-      className="w-full placeholder-[#aaaaaa] font-light"
+      className="w-full placeholder-[#aaaaaa] font-light outline-none"
       placeholder="Search for a smartphone..."
       value={text}
       onChange={(e) => setText(e.target.value)}
