@@ -2,10 +2,11 @@
 
 import { ProductDetails } from "@/app/utils/api/types";
 import Configuration from "./configuration/configuration";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import Image from "./image";
 import Specifications from "./specifications/specifications";
 import SimilarProducts from "./similiar-products";
+import { useCart } from "@/app/context/cart";
 
 type DetailsContextType = {
   selectedColorIndex: number;
@@ -26,7 +27,12 @@ type Props = {
 };
 
 export default function Details({ productDetails }: Props) {
+  const { setDetailItemId } = useCart();
   const [selectedColorIndex, setSelectedColorIndex] = useState<number>(0);
+
+  useEffect(() => {
+    setDetailItemId(productDetails.id);
+  }, [productDetails]);
 
   return (
     <DetailsContext.Provider

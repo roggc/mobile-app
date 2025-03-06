@@ -6,6 +6,8 @@ import React, {
   useState,
   ReactNode,
   useCallback,
+  SetStateAction,
+  Dispatch,
 } from "react";
 
 export type CartItem = {
@@ -21,6 +23,8 @@ type CartContextType = {
   items: CartItem[];
   addItem: (item: CartItem) => void;
   removeItem: (id: string) => void;
+  detailItemId: string;
+  setDetailItemId: Dispatch<SetStateAction<string>>;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -35,6 +39,7 @@ export function useCart() {
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
+  const [detailItemId, setDetailItemId] = useState("");
 
   const addItem = useCallback(
     (item: CartItem) =>
@@ -51,7 +56,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
   );
 
   return (
-    <CartContext.Provider value={{ items, addItem, removeItem }}>
+    <CartContext.Provider
+      value={{ items, addItem, removeItem, detailItemId, setDetailItemId }}
+    >
       {children}
     </CartContext.Provider>
   );
